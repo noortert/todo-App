@@ -1,0 +1,178 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f3ea;
+  color: #1c1b18;
+  font-family: "Sofia Sans", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.app {
+  position: relative;
+  width: 38rem;
+  margin: 5rem auto;
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  inset: -0.9rem;
+  border-radius: 1.5rem;
+  background: #b43b2f;
+  opacity: 0.09;
+  z-index: -1;
+}
+
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Sofia Sans Condensed", "Sofia Sans", sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+
+.add-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.add-form input {
+  width: 28rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e3ddce;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+}
+
+.add-form input:focus {
+  border-color: #b43b2f;
+  outline: none;
+}
+
+.add-form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #1c1b18;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-button {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: none;
+  color: #8c8676;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.task:hover .remove-button {
+  opacity: 1;
+}
+
+.remove-button:hover {
+  color: #b43b2f;
+}
+
+.add-form button:hover {
+  background: #b43b2f;
+}
+
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  background: #fffdf8;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 1px 3px rgba(28, 27, 24, 0.08);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.task input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: #1c1b18;
+  cursor: pointer;
+}
+
+
+.task.done {
+  border-left: 4px solid #b43b2f;
+  padding-left: 0.75rem;
+}
+
+.task.done .task-text {
+  color: #8c8676;
+  text-decoration: line-through;
+}
+
+
+button:focus-visible,
+input[type="checkbox"]:focus-visible {
+  outline: 3px solid #b43b2f;
+  outline-offset: 2px;
+}
+
+/* Syns inte, men läses upp av skärmläsare */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.status {
+  margin: 0;
+  color: #8c8676;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
+.status.updated {
+  opacity: 0.4;
+}
